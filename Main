@@ -1,0 +1,34 @@
+import java.util.Arrays;
+import java.time.Duration;
+import java.io.IOException;
+
+public class Main {
+    private static final int ARRAY_SIZE = 10000;
+    private static int[] generateArray() {
+        int[] array = new int[ARRAY_SIZE];
+        // заполнение массива случайными числами
+        return array;
+    }
+
+    public static void main(String[] args) throws IOException {
+        long startTime;
+        int[] testArray = generateArray();
+
+        // Тестирование Arrays.sort()
+        startTime = System.nanoTime();
+        Arrays.sort(testArray);
+        System.out.println("Arrays.sort(): " + Duration.ofNanos(System.nanoTime() - startTime).toString());
+
+        // Тестирование BubbleSort
+        testArray = generateArray();
+        startTime = System.nanoTime();
+        BubbleSort.sort(testArray);
+        System.out.println("BubbleSort: " + Duration.ofNanos(System.nanoTime() - startTime).toString());
+
+        // Тестирование InsertionSort
+        testArray = generateArray();
+        startTime = System.nanoTime();
+        InsertionSort.sort(testArray);
+        System.out.println("InsertionSort: " + Duration.ofNanos(System.nanoTime() - startTime).toString());
+    }
+}
